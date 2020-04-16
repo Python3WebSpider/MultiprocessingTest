@@ -14,10 +14,13 @@ class MyProcess(Process):
 
 
 if __name__ == '__main__':
+    processes = []
     for i in range(2, 5):
         p = MyProcess(i)
+        processes.append(p)
         p.daemon = True
         p.start()
+    for p in processes:
         p.join()
 
 print('Main Process ended')
